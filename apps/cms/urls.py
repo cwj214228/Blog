@@ -5,5 +5,6 @@ app_name = 'cms'
 urlpatterns = [
     path('', views.index, name='index'),
     path('WriteArticle/', views.WriteArticle, name='WriteArticle'),
+    path('ArticleCategory/', views.ArticleCategory, name='ArticleCategory'),
 
 ]
