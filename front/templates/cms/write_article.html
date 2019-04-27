@@ -9,7 +9,7 @@
     <script src="{% static 'AdminLTE-2.4.10/bower_components/jquery/dist/jquery.min.js' %}"></script>
     <script src="{% static 'ueditor/ueditor.config.js' %}"></script>
     <script src="{% static 'ueditor/ueditor.all.min.js' %}"></script>
-    <script src="{% static 'js/write_news.js' %}"></script>
+    <script src="{% static 'js/write_article.js' %}"></script>
 {% endblock %}
 
 {% block content-header %}
@@ -34,13 +34,13 @@
                         <div class="form-group">
                             <label for="category-form">分类</label>
                             <select name="category" id="category-form" class="form-control">
-{#                                {% for category in categories %}#}
-{#                                    {% if news and news.category_id == category.pk %}#}
-{#                                        <option value="{{ category.pk }}" selected>{{ category.name }}</option>#}
-{#                                    {% else %}#}
-{#                                        <option value="{{ category.pk }}">{{ category.name }}</option>#}
-{#                                    {% endif %}#}
-{#                                {% endfor %}#}
+                                {% for category in categories %}
+                                    {% if news and news.category_id == category.pk %}
+                                        <option value="{{ category.pk }}" selected>{{ category.name }}</option>
+                                    {% else %}
+                                        <option value="{{ category.pk }}">{{ category.name }}</option>
+                                    {% endif %}
+                                {% endfor %}
 
                             </select>
                         </div>
@@ -78,12 +78,12 @@
                         <div class="form-group">
                             <label for="content-form">内容</label>
                             <script id="editor" type="text/plain">
-{#                                {{ news.content|safe }}#}
+                                {{ article.content|safe }}
                             </script>
                         </div>
                     </div>
                     <div class="box-footer">
-                        <button id="submit-btn" data-news-id="" class="btn btn-primary pull-right">发布文章</button>
+                        <button id="submit-btn" data-news-id="{{ article.pk }}" class="btn btn-primary pull-right">发布文章</button>
                     </div>
                 </form>
             </div>

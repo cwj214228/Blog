@@ -20,4 +20,5 @@ from apps.article import views
 urlpatterns = [
     path('', views.index),
     path('cms/', include('apps.cms.urls')),
+    path('ueditor/', include('apps.ueditor.urls')),
 ]

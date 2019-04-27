@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.article',
+    'apps.ueditor',
     'apps.cms',
 ]
 
@@ -138,8 +139,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Qiniu配置
 QINIU_ACCESS_KEY = '9MDDUAqwOlE2WVqSuwq-Cug9CMiikxFkO_4THDc7'
 QINIU_SECRET_KEY = 'Z1kEZOwprrde-iIVFrIMQ1JW3M9BYJWqfdC_Pn67'
-QINIU_BUCKET_NAME = 'xfz_chenwenjie'
-QINIU_DOMAIN = 'http://pq1mbxsvm.bkt.clouddn.com/'
+QINIU_BUCKET_NAME = 'blog'
+QINIU_DOMAIN = 'http://pqm5g053b.bkt.clouddn.com/'
 
 # 七牛和自己的服务器，最少要配置一个
 # UEditor配置
