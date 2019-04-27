@@ -6,7 +6,7 @@
 
 {% block head %}
 <script src="{% static 'AdminLTE-2.4.10/bower_components/jquery/dist/jquery.min.js' %}"></script>
-    <script src="{% static 'js/news_category.js' %}"></script>
+    <script src="{% static 'js/article_category.js' %}"></script>
 {% endblock %}
 
 {% block content-header %}
@@ -30,14 +30,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr data-pk="" data-name="">
-                                <td>校园生活</td>
+                        {% for category in categories %}
+                            <tr data-pk="{{ category.pk }}" data-name="{{ category.name }}">
+                                <td>{{ category.name }}</td>
                                 <td>20</td>
                                 <td>
                                     <button class="btn btn-warning btn-xs edit-btn">编辑</button>
                                     <button class="btn btn-danger btn-xs delete-btn">删除</button>
                                 </td>
                             </tr>
+                        {% endfor %}
 {#                        {% for category in categories %}#}
 {#                            <tr data-pk="{{ category.pk }}" data-name="{{ category.name }}">#}
 {#                                <td>{{ category.name }}</td>#}
