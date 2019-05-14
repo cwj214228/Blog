@@ -1,0 +1,117 @@
+{% extends 'cms/base.html' %}
+
+{% block title %}
+个人信息
+{% endblock %}
+
+
+{% block head %}
+    <script src="https://unpkg.com/qiniu-js@2.5.2/dist/qiniu.min.js"></script>
+    <script src="{% static 'AdminLTE-2.4.10/bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'ueditor/ueditor.config.js' %}"></script>
+    <script src="{% static 'ueditor/ueditor.all.min.js' %}"></script>
+    <script src="{% static 'js/cms/work_experience.js' %}"></script>
+    <script src="{% static 'js/xfzalert.js' %}"></script>
+{% endblock %}
+
+
+{% block content-header %}
+    <h1>
+        工作经历
+    </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="form">
+                    <div class="box-body" user-id="{{ user.pk }}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">从:</span>
+                                {% if user_work %}
+                                    <input type="text" class="form-control" placeholder="2019-5-1"
+                                           aria-describedby="basic-addon1" name="starttime"
+                                           value="{{ user_work.start_time }}">
+                                    {% else %}
+                                    <input type="text" class="form-control" placeholder="2019-5-1"
+                                           aria-describedby="basic-addon1" name="starttime"
+                                           value="">
+                                {% endif %}
+
+                                <span class="input-group-addon" id="basic-addon1">至:</span>
+                                {% if user_work %}
+                                    <input type="text" class="form-control" placeholder="2019-5-2"
+                                           aria-describedby="basic-addon1" name="endtime"
+                                           value="{{ user_work.end_time }}">
+                                    {% else %}
+                                    <input type="text" class="form-control" placeholder="2019-5-2"
+                                           aria-describedby="basic-addon1" name="endtime"
+                                           value="">
+                                {% endif %}
+                                <span class="input-group-addon" id="basic-addon1">职位:</span>
+                            {% if user_work %}
+                            <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1"
+                                       name="position" value="{{ user_work.position }}">
+                                {% else %}
+                                <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1"
+                                       name="position" value="">
+                            {% endif %}
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="title-form">工作内容</label>
+                            {% if user_work %}
+                                <input type="text" class="form-control" name="work1" id="title-form" placeholder="1."
+                                       value="{{ user_work.work_one }}">
+                                <input type="text" class="form-control" name="work2" id="title-form" placeholder="2."
+                                       value="{{ user_work.work_two }}">
+                                <input type="text" class="form-control" name="work3" id="title-form" placeholder="3."
+                                       value="{{ user_work.work_three }}">
+                                <input type="text" class="form-control" name="work4" id="title-form" placeholder="4."
+                                       value="{{ user_work.work_four }}">
+                                <input type="text" class="form-control" name="work5" id="title-form" placeholder="5."
+                                       value="{{ user_work.work_five }}">
+                            {% else %}
+                                <input type="text" class="form-control" name="work1" id="title-form" placeholder="1."
+                                       value="">
+                                <input type="text" class="form-control" name="work2" id="title-form" placeholder="2."
+                                       value="">
+                                <input type="text" class="form-control" name="work3" id="title-form" placeholder="3."
+                                       value="">
+                                <input type="text" class="form-control" name="work4" id="title-form" placeholder="4."
+                                       value="">
+                                <input type="text" class="form-control" name="work5" id="title-form" placeholder="5."
+                                       value="">
+                            {% endif %}
+
+                        </div>
+                        <div class="form-group">
+                            <label for="title-form">个人技能</label>
+                            {% if user_work %}
+                            <input type="text" class="form-control" name="skill1" id="title-form" placeholder="1." value="{{ user_work.work_skill_one }}">
+                            <input type="text" class="form-control" name="skill2" id="title-form" placeholder="2." value="{{ user_work.work_skill_two }}">
+                            <input type="text" class="form-control" name="skill3" id="title-form" placeholder="3." value="{{ user_work.work_skill_three }}">
+                            <input type="text" class="form-control" name="skill4" id="title-form" placeholder="4." value="{{ user_work.work_skill_four }}">
+                            <input type="text" class="form-control" name="skill5" id="title-form" placeholder="5." value="{{ user_work.work_skill_five }}">
+                                {% else %}
+                                <input type="text" class="form-control" name="skill1" id="title-form" placeholder="1." value="">
+                            <input type="text" class="form-control" name="skill2" id="title-form" placeholder="2." value="">
+                            <input type="text" class="form-control" name="skill3" id="title-form" placeholder="3." value="">
+                            <input type="text" class="form-control" name="skill4" id="title-form" placeholder="4." value="">
+                            <input type="text" class="form-control" name="skill5" id="title-form" placeholder="5." value="">
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button id="submit-btn" class="btn btn-primary pull-right">确认</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

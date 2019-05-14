@@ -5,7 +5,8 @@ function Article() {
 Article.prototype.initUEditor = function () {
     window.ue = UE.getEditor('editor',{
         'initialFrameHeight': 400,
-        'serverUrl': '/ueditor/upload/'
+        'serverUrl': '/ueditor/upload/',
+        initialFrameWidth:"100%"
     });
 };
 
@@ -87,29 +88,83 @@ Article.prototype.listenSubmitEvent = function () {
         var desc = $("input[name='desc']").val();
         var thumbnail = $("input[name='thumbnail']").val();
         var content = window.ue.getContent();
+        var url = '/cms/write_article/';
+        var token = $('input[name=csrfmiddlewaretoken]').val();
 
-        var url = '';
-        if(pk){
-            url = '/cms/edit_news/';
-        }else{
-            url = '/cms/write_article/';
-        }
+        console.log(url);
+        console.log(title);
+        console.log(category);
+        console.log(desc);
+        console.log(thumbnail);
+        console.log(content);
+        console.log(pk);
 
-        xfzajax.post({
-            'url': url,
-            'data': {
-                'title': title,
-                'category': category,
-                'desc': desc,
-                'thumbnail': thumbnail,
-                'content': content,
-                'pk': pk
+        $.ajax({
+            type:"post",
+            url: url,
+            data: {
+                title: title,
+                category: category,
+                desc: desc,
+                thumbnail: thumbnail,
+                content: content,
+                pk: pk,
+                csrfmiddlewaretoken: token
             },
-            'success': function (result) {
+            success: function (result) {
                 if(result['code'] === 200){
-                    xfzalert.alertSuccess('恭喜！新闻发表成功！',function () {
+                    xfzalert.alertSuccess("发布成功！", function () {
                         window.location.reload();
-                    });
+                    })
+                }
+            }
+        });
+    });
+};
+
+
+Article.prototype.ListenEditSubmitEvent = function(){
+    var editBtn = $("#edit-btn");
+    editBtn.click(function (event) {
+        event.preventDefault();
+        var btn = $(this);
+        var article_id = btn.attr('data-news-id');
+
+        var title = $("input[name='title']").val();
+        var category = $("select[name='category']").val();
+        var desc = $("input[name='desc']").val();
+        var thumbnail = $("input[name='thumbnail']").val();
+
+        var content = window.ue.getContent();
+
+        var url = '/cms/edit_article/';
+        var token = $('input[name=csrfmiddlewaretoken]').val();
+
+        console.log(url);
+        console.log(title);
+        console.log(category);
+        console.log(desc);
+        console.log(thumbnail);
+        console.log(content);
+        console.log(article_id);
+
+        $.ajax({
+            type:"post",
+            url: url,
+            data: {
+                title: title,
+                category: category,
+                desc: desc,
+                thumbnail: thumbnail,
+                content: content,
+                article_id: article_id,
+                csrfmiddlewaretoken: token
+            },
+            success: function (result) {
+                if(result['code'] === 200){
+                    xfzalert.alertSuccess("修改成功！", function () {
+                        window.location.reload();
+                    })
                 }
             }
         });
@@ -121,6 +176,7 @@ Article.prototype.run = function () {
     self.initUEditor();
     self.listenQiniuUploadFileEvent();
     self.listenSubmitEvent();
+    self.ListenEditSubmitEvent();
 };
 
 

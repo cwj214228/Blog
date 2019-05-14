@@ -65,15 +65,22 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="http://img.52z.com/upload/news/image/20180129/20180129082228_25779.jpg"
+                            <img src="{{ user.head_image }}"
                                  class="user-image" alt="User Image">
-                            <span class="hidden-xs">蜗牛</span>
+                            <span class="hidden-xs">{{ user.username }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="http://img.52z.com/upload/news/image/20180129/20180129082228_25779.jpg"
+                                {% if user.head_image %}
+                                    <img src="{{ user.head_image }}"
                                      class="img-circle" alt="User Image">
+
+                                {% else %}
+                                    <img src="http://img4.duitang.com/uploads/item/201603/08/20160308055305_AiuTz.jpeg"
+                                     class="img-circle" alt="User Image">
+                                {% endif %}
+
                                 <p>
                                     Python Web和高级爬虫工程师
                                     <small>Member since Nov. 2019</small>
@@ -85,10 +92,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">个人中心</a>
+                                    <a href="/?user_id={{ user.pk }}" class="btn btn-default btn-flat">博客首页</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">注销</a>
+                                    <a href="{% url 'auth_blog:logout_view' %}" class="btn btn-default btn-flat">注销</a>
                                 </div>
                             </li>
                         </ul>
@@ -117,12 +124,24 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">数据管理</li>
                 <li class="active">
-                    <a href="#">
-                        <i class="fa fa-home"></i> <span>首页</span>
+                    <a href="{% url 'cms:index' %}">
+                        <i class="fa fa-line-chart"></i> <span>访问数据</span>
                     </a>
                 </li>
-                <li class="header">新闻管理</li>
+                <li class="header">个人资料</li>
+                <li>
+                    <a href="{% url 'cms:person_message' %}">
+                        <i class="fa fa-user"></i> <span>个人简介</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'cms:work_experience' %}">
+                        <i class="fa fa-graduation-cap"></i> <span>工作经历</span>
+                    </a>
+                </li>
+                <li class="header">文章管理</li>
                 <li>
                     <a href="{% url 'cms:write_article' %}">
                         <i class="fa fa-edit"></i>
@@ -135,11 +154,16 @@
                         <span>文章分类</span>
                     </a>
                 </li>
-                <li class="header">课程管理</li>
                 <li>
-                    <a href="#">
-                        <i class="fa fa-tv"></i>
-                        <span>发布课程</span>
+                    <a href="{% url 'cms:article_list' %}">
+                        <i class="fa fa-list"></i>
+                        <span>文章列表</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'cms:banners' %}">
+                        <i class="fa fa-window-restore"></i>
+                        <span>轮播图</span>
                     </a>
                 </li>
             </ul>
@@ -208,5 +232,8 @@
 <script src="{% static 'AdminLTE-2.4.10/dist/js/pages/dashboard.js' %}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{% static 'AdminLTE-2.4.10/dist/js/demo.js' %}"></script>
+{% block script %}
+
+{% endblock %}
 </body>
 </html>

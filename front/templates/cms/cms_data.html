@@ -1,0 +1,51 @@
+{% extends 'cms/base.html' %}
+
+{% block title %}
+首页
+{% endblock %}
+
+{% block content-header %}
+蜗牛个人博客后台管理系统
+{% endblock %}
+
+
+{% block content %}
+    <div class="box box-primary" id='main' style='height:400px;width:100%;background: #ffffff'>
+
+    </div>
+    <script src="{% static 'js/echarts.js' %}"></script>
+    <script>
+          //基于准备好的DOM，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+          //指定图表的配置项和数据
+        var option = {
+            title:{
+                text:'访量统计'
+            },
+            //提示框组件
+            tooltip:{
+                //坐标轴触发，主要用于柱状图，折线图等
+                trigger:'axis'
+            },
+            //图例
+            legend:{
+                data:['点击量']
+            },
+            //横轴
+            xAxis:{
+                data:["2019/5/1","2019/5/2","2019/5/3","2019/5/4","2019/5/5","2019/5/6","2019/5/2","2019/5/2","2019/5/2","2019/5/2","2019/5/2","2019/5/2"]
+            },
+            //纵轴
+            yAxis:{},
+            //系列列表。每个系列通过type决定自己的图表类型
+            series:[{
+                name:'点击量',
+                //折线图
+                type:'line',
+                data: [5, 20, 36, 10, 10, 20, 35, 40, 15, 20, 40, 30]
+            }]
+        };
+        //使用刚指定的配置项和数据显示图表
+        myChart.setOption(option);
+    </script>
+{% endblock %}

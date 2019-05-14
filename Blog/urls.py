@@ -21,4 +21,10 @@ urlpatterns = [
     path('', views.index),
     path('cms/', include('apps.cms.urls')),
     path('ueditor/', include('apps.ueditor.urls')),
+    path('article/', include('apps.article.urls')),
+    path('time_axis/', include('apps.time_axis.urls')),
+    path('cms/login/', include('apps.auth_blog.urls')),
+    path('cms/write_basicinformation/', include('apps.write_basicinformation.urls')),
+    path('ueditor/', include('apps.ueditor.urls')),
+    path('cms/work_experience/', include('apps.work_experience.urls')),
 ]

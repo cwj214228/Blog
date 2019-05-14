@@ -27,17 +27,20 @@
     <div class="logo"><a href="http://www.yangqq.com">蜗牛个人博客</a></div>
     <h2 id="mnavh"><span class="navicon"></span></h2>
     <ul id="starlist">
-      <li><a href="index.html">网站首页</a></li>
-      <li><a href="about.html">关于我</a></li>
-      <li><a href="share.html">模板分享</a></li>
-      <li><a href="list.html">博客日记</a></li>
-      <li class="menu"><a href="fengmian.html">学无止境</a>
+        <li><a href="/">网站首页</a></li>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="share.html">模板分享</a></li>
+        <li><a href="list.html">博客日记</a></li>
+        <li class="menu"><a href="fengmian.html">学无止境</a>
+        {% block header_li %}
+
+        {% endblock %}
         <ul class="sub">
           <li><a href="#">慢生活</a></li>
           <li><a href="#">美文欣赏</a></li>
         </ul>
       </li>
-      <li><a href="time.html">时间轴</a></li>
+      <li><a href="{% url 'time_axis:title_list' %}">时间轴</a></li>
     </ul>
     <div class="searchbox">
     <div id="search_bar" class="search_bar">

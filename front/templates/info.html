@@ -1,115 +1,46 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="gbk">
-<title>Ê×Ò³_ÑîÇà¸öÈË²©¿Í - Ò»¸öÕ¾ÔÚwebÇ°¶ËÉè¼ÆÖ®Â·µÄÅ®¼¼ÊõÔ±¸öÈË²©¿ÍÍøÕ¾</title>
-<meta name="keywords" content="¸öÈË²©¿Í,ÑîÇà¸öÈË²©¿Í,¸öÈË²©¿ÍÄ£°å,ÑîÇà" />
-<meta name="description" content="ÑîÇà¸öÈË²©¿Í£¬ÊÇÒ»¸öÕ¾ÔÚwebÇ°¶ËÉè¼ÆÖ®Â·µÄÅ®³ÌÐòÔ±¸öÈËÍøÕ¾£¬Ìá¹©¸öÈË²©¿ÍÄ£°åÃâ·Ñ×ÊÔ´ÏÂÔØµÄ¸öÈËÔ­´´ÍøÕ¾¡£" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="css/base.css" rel="stylesheet">
-<link href="css/index.css" rel="stylesheet">
-<link href="css/info.css" rel="stylesheet">
-<link href="css/m.css" rel="stylesheet">
-<script src="js/jquery.min.js" ></script>
-<script src="js/jquery.easyfader.min.js"></script>
-<script src="js/hc-sticky.js"></script>
-<script src="js/comm.js"></script>
-<script src="js/scrollReveal.js"></script>
-<!--[if lt IE 9]>
-<script src="js/modernizr.js"></script>
-<![endif]-->
-</head>
-<body>
-<header class="header-navigation" id="header">
-  <nav>
-    <div class="logo"><a href="http://www.yangqq.com">ÑîÇà¸öÈË²©¿Í</a></div>
-    <h2 id="mnavh"><span class="navicon"></span></h2>
-    <ul id="starlist">
-      <li><a href="index.html">ÍøÕ¾Ê×Ò³</a></li>
-      <li><a href="about.html">¹ØÓÚÎÒ</a></li>
-      <li><a href="share.html">Ä£°å·ÖÏí</a></li>
-      <li><a href="list.html">²©¿ÍÈÕ¼Ç</a></li>
-      <li class="menu"><a href="fengmian.html">Ñ§ÎÞÖ¹¾³</a>
-        <ul class="sub">
-          <li><a href="#">ÂýÉú»î</a></li>
-          <li><a href="#">ÃÀÎÄÐÀÉÍ</a></li>
-        </ul>
-      </li>
-      <li><a href="info.html">ÂýÉú»î</a></li>
-      <li><a href="time.html">Ê±¼äÖá</a></li>
-    </ul>
-    <div class="searchbox">
-      <div id="search_bar" class="search_bar">
-        <form  id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">
-          <input class="input" placeholder="ÏëËÑµãÊ²Ã´ÄØ.." type="text" name="keyboard" id="keyboard">
-          <input type="hidden" name="show" value="title" />
-          <input type="hidden" name="tempid" value="1" />
-          <input type="hidden" name="tbname" value="news">
-          <input type="hidden" name="Submit" value="ËÑË÷" />
-          <p class="search_ico"> <span></span></p>
-        </form>
-      </div>
-    </div>
-  </nav>
-</header>
+{% extends 'base/base_front.html' %}
+
+{% block title %}
+
+{% endblock %}
+æ–‡ç« è¯¦æƒ…
+{% block head %}
+    <link href="{% static 'css/info.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block header_li %}
+<li class="mashenghuo"><a href="info.html" >æ…¢ç”Ÿæ´»</a></li>
+{% endblock %}
+
+{% block article %}
 <article>
   <main>
   <div class="infosbox">
     <div class="newsview">
-      <h3 class="news_title">¸öÈË²©¿Í£¬ÊôÓÚÎÒµÄÐ¡ÊÀ½ç£¡</h3>
+      <h3 class="news_title">{{ article.title }}</h3>
       <div class="bloginfo">
         <ul>
-          <li class="author">×÷Õß£º<a href="/">ÑîÇà</a></li>
-          <li class="lmname"><a href="/">Ñ§ÎÞÖ¹¾³</a></li>
-          <li class="timer">Ê±¼ä£º2018-5-13</li>
-          <li class="view">4567ÈËÒÑÔÄ¶Á</li>
+          <li class="author">ä½œè€…ï¼š<a href="/">èœ—ç‰›</a></li>
+          <li class="lmname"><a href="/">å‘é£™çš„èœ—ç‰›</a></li>
+          <li class="timer">æ—¶é—´ï¼š{{ article.pub_time|date:"Y-m-d" }}</li>
+          <li class="view">4567äººå·²é˜…è¯»</li>
         </ul>
       </div>
-      <div class="tags"><a href="/" target="_blank">¸öÈË²©¿Í</a> &nbsp; <a href="/" target="_blank">Ð¡ÊÀ½ç</a></div>
-      <div class="news_about"><strong>¼ò½é</strong>¸öÈË²©¿Í£¬ÓÃÀ´×öÊ²Ã´£¿ÎÒ¸Õ¿ªÊ¼¾Í°ÑËüµ±×öÒ»¸öÎÒÍÂ²ÛÐÄÇéµÄµØ·½£¬Ò²¾ÍÏàµ±ÓÚÒ»¸öÍøÂç¼ÇÊÂ±¾£¬Ð´ÉÏÒ»Ð©¹ØÓÚ×Ô¼ºÉú»î¹¤×÷ÖÐµÄÐ¡ÇéÐ¡ÊÂ£¬Ò²»á·ÅÉÏÒ»Ð©ÕÕÆ¬£¬ÒôÀÖ¡£Ã¿Ìì¹¤×÷»Ø¼Òºó¾ÍÄÜ·ÃÎÊ×Ô¼ºµÄÍøÕ¾£¬Ò»±ßÌý×ÅÒôÀÖ£¬Ò»±ßÐ´Ð´ÎÄÕÂ¡£</div>
-      <div class="news_con"> ±¾ÎÄºÜ³¤£¬¼ÇÂ¼ÁËÎÒ²©¿Í½¨Õ¾³õµ½ÏÖÔÚµÄ¹ý³Ì£¬»¹ÓÐÎÒ´Ó±ÏÒµµ½ÏÖÔÚµÄÒ»¸ö×´Ì¬£¬¸ÐÐ»ÄúµÄÔÄ¶Á£¬Èç¹ûÄã»¹ÊÇÑ§Éú£¬Ò²ÐíÄãÄÜ´Ó´ËÎÄÖÐ£¬ÕÒµ½ÎÒÃÇÔø¾­ÏàËÆµÄµØ·½¡£Èç¹ûÄãÒÑ¾­¹¤×÷£¬ÓÐ×Ô¼ºµÄ²©¿Í£¬ÎÒÏë£¬Äã²¢Ã»ÓÐÍü¼Çµ±³õ½¨Á¢¸öÈË²©¿ÍµÄ³õÖÔ°É£¡<br>
-        <br>
-        ÎÒµÄ¸öÈË²©¿ÍÒÑ¾­½¨Õ¾ÓÐ8ÄêµÄÊ±¼äÁË£¬¶ÔËüµÄÈÈ°®£¬Ò»Ö±¶¼ÊÇÖ»ÔöÎ´¼õ¡£»ØÏë´óÑ§¶ÁÊéµÄÄÇ¼¸Äê£¬ÄÇ»á¶ù·Ç³£Á÷ÐÐQQ¿Õ¼ä£¬ÎÒÃÇÇÞÊÒµÄÊÒÓÑ»¹¾­³£ÑûÔ¼È¥Ñ§Ð£µÄÍø°É×ö×Ô¼ºµÄ¿Õ¼ä¡£ÏµÀïÓÐ¸öÄÐÉú£¬¿Õ¼ä×öµÃ·Ç³£Æ¯ÁÁ£¬Ê²Ã´Ðü¸¡£¬¿ª³¡¶¯»­£¬ÒôÀÖ²¥·ÅÆ÷£¬ÎÒÃÇÅ®ÉúÏÛÄ½µÃ²»µÃÁË¡£»¹ÑûÔ¼Ëû¸úÎÒÃÇÒ»ÆðÈ¥Í¨ÏüÅª¿Õ¼ä£¬ÍøÉÏ¿ÉÒÔÕÒµ½ºÜ¶àÃâ·ÑµÄflash×ÊÔ´£¬»¹ÓÐÒôÀÖ£¬ÄÇÒ²ÊÇµÚÒ»´Î½Ó´¥js£¬ÖªµÀÔÚä¯ÀÀÆ÷ÊäÈëÒ»¸öµØÖ·£¬ÐÞ¸ÄÒ»ÏÂÊý¾Ý£¬¾ÍÄÜµ÷ÓÃÒ»Ð©±³¾°³öÀ´¡£È»ºó°Ñ×Ô¼ºQQ¿Õ¼äÅªµÃÆ¯Æ¯ÁÁÁÁµÄ£¬¾­³£ÑûÔ¼ÊÒÓÑÀ´»¥²È¡£ÎÒ¼ÇµÃ08ÄêµØÕð£¬µÚ¶þÌìÍíÉÏ£¬ÎÒÃÇÇÞÊÒµÄ¼¸¸öÈË»¹µ­¶¨µÄÔÚÇÞÊÒ×°°ç¿Õ¼äÄØ£¡<br>
-        <br>
-        <img alt="" src="images/1.jpg"><br>
-        <br>
-        ºóÀ´¿Õ¼äÊÕ·ÑÏîÄ¿Ò²¶àÁË£¬¹Ù·½Â©¶´Ò²ÐÞ¸´ÁË£¬¼ÓÉÏÁÙ½ü±ÏÒµ£¬ÓÖÒªÃ¦×Å×ö±ÏÒµÉè¼Æ£¬¾ÍÃ»ÔÙ´òÀíQQ¿Õ¼ä¡£ÎÒÖªµÀÏÖÔÚµÄ¾ÅÁãºó£¬ÁãÁãºó£¬ÄãÃÇ¿Ï¶¨Ã»¿´¹ý¡¶Ò»Á±ÓÄÃÎ¡·£¬ÄÇ»á¶ùÎÒÒ²ÊÇ·è¿ñ×·¾ç£¬Ï²»¶ÉÏ×ÏÁâ£¬Ï²»¶ÉÏËýµÄÍøÕ¾¡£Ïë¿´¿´ËýµÄÐ¡ÊÀ½ç£¬¶øÎÒ¸üÏëÑ§×Å×öÒ»¸öËýÄÇÑùµÄÍøÕ¾¡£ÄÇ»á¶ù»¹ÌìÕæµÄÒÔÎªÍøÉÏÕæµÄÓÐËýµÄÍøÕ¾£¬°Ù¶ÈËÑÁËºÃÐ©ÌìÒ²Ã»ÓÐ¡£<br>
-        <br>
-        Òª±ÏÒµµÄÊ±ºò£¬Òª½»×÷ÒµÁË£¬¸Ð¾õ×Ô¼ºÊ²Ã´¶¼Ã»Ñ§»á¡£ÊÒÓÑÀ­×ÅÎÒÃÇÈ¥¿´ÁËËýÍ¬Ñ§×öµÄÍøÕ¾£¬ÎÒÃÇÒ»¸ö¸öÅå·þµÃÎåÌåÍ¶µØ£¬ÉõÖÁ¾õµÃÌ«²»¿ÉË¼ÒéÁË¡£ÓÐÄÑ¶È£¬ÓÖÅÂ×Ô¼º²»»á¡£ÀÏÊ¦½ÌÎÒÃÇÔõÃ´²¼¾Ö£¬ÔõÃ´×ö£¬²¢Ã»ÓÐ½ÌÎÒÃÇÓÒ¼ü±£´æÍøÒ³¡£²»ÖªµÀÊÇË­ÏÈ»áÁËÕâ¾ø¼¼£¬È»ºóÎÒÃÇÒ»¸ö¸öÓÖ¸ú´òÁË¼¦ÑªËÆµÄ£¬·è¿ñÔÚÍøÉÏÕÒÍøÒ³£¬ÓÒ¼üÁí´æÎª¡£È»ºóÒ»¸ö¸öÐÞ¸ÄÎÄ×Ö£¬Í¼Æ¬¡£·Â·ðÓÖ»Øµ½ÁËÄÇ»á¶ù×öQQ¿Õ¼äÄÇ¸öÊ±ºò¡£ÄÃ×ÅcopyÀ´£¬²¢ÇÒ¾«ÐÄÐÞ¸ÄµÄ×÷Æ·£¬µÝ½»ÁË±ÏÒµÉè¼Æ£¬Ë³Àû½áÒµ¡£ÄÇ»á¶ù»¹ÊÇºÜÃÉ£¬Ò»ÖÖÔÆÀïÎíÀïµÄ¸Ð¾õ£¬¾¹ÓÐÖÖ²»ÖªµÀ×Ô¼ºµ½µ×ÊÇ»á»¹ÊÇ²»»áµÄ¸Ð¾õ£¬Ò²¾ÍÊÇ´ó¼Ò³£ËµµÄ±ÏÒµÃÔÃ£ÆÚ¡£<br>
-        <br>
-        <img alt="" src="images/2.jpg"><br>
-        <br>
-        ¹¤×÷ºó½øÈëÉç»á£¬³öÈ¥Ì¸ÒµÎñ£¬Óöµ½Ò»¸ö¶ÔÍøÒ³Éè¼Æ³¬¼¶¸ÐÐËÈ¤µÄÈË£¬ÁÄÁËÒ»ÏÂÎç¶¼»¹²»¹»£¬ËûÊÇÍêÈ«×ÔÑ§µÄ£¬×öÁËÒ»¸öÊ×Ò³Ðû´«ËûÃÇµÄ²úÆ·¡£ËûÑÛÀïµÄÎÒ¾ÍÊÇ×¨ÒµµÄ£¬×ÜÊÇÇë½ÌÎÒÒ»Ð©ÎÊÌâ¡£ÆäÊµÎÒÄÚÐÄÌØÏÛÄ½ÈË¼Ò£¬Ã¿´ÎÎÊÎÒ£¬ÎÒÒ²ËÆ¶®·Ç¶®µÄ¸úÈË¼Ò½â¾öÎÊÌâ£¬µ«ÎÒ»¹ÊÇ¾­³£¿¿°Ù¶ÈÀ´ËÑË÷ËûÒªµÄ´ð°¸¡£ËûÉíÉÏÄÇÖÖºÃÑ§ºÃÎÊµÄÄÇ¹É¾¢¶ù£¬Ò²³ÉÎªÎÒÆÈÇÐÏëÓµÓÐ×Ô¼ºµÄ¸öÈË²©¿ÍµÄÒ»¸öÖØÒªÔ­Òò¡£<br>
-        <br>
-        ×ö²©¿Í²»ÊÇËµ×ö¾Í×öµÄ£¬ºÜ¶à¶«Î÷ÎÒ¶¼²»¶®£¬Ò²²»ÖªµÀÒª¹ºÂòÓòÃû»¹ÓÐ¿Õ¼ä¡£Ç°ÆÚÒª×öµÄ¹¤×÷»¹ÊÇºÜ¶à¡£ÐÒºÃÕÅÔ°Í¬Ñ§£¬Ò²ÊÇÎÒÊµÏ°ÆÚµÄÍ¬ÊÂ£¬Ëû»áÕâÐ©£¬½ÌÎÒÍøÉÏÕÒÃâ·ÑµÄÐéÄâ¿Õ¼ä£¬È»ºó¾ÍÊÇ°Ñ×Ô¼º×öµÄÒ³ÃæÉÏ´«½øÈ¥£¬»¹¸øÁËÓÐÒ»¸öµØÖ·£¬È»ºó¾ÍÄÜ·ÃÎÊÁË¡£ÄÇÊÇµÚÒ»´Î½Ó´¥£¬Ò²ÁË½âÁËÕû¸öÍøÕ¾µÄÖÆ×÷¹ý³Ì£¬Ö»¿ÉÏ§ÂòÓòÃû»¹ÓÐ¿Õ¼äÐèÒª·ÑÓÃ£¬»¹ÔÚÊµÏ°ÆÚµÄÎÒ£¬ÏëÏëÒ²¾ÍËãÁË¡£ÐéÄâ¿Õ¼ä±Ï¾¹ÊÇÃâ·ÑµÄ£¬Ã»¶à³¤Ê±¼ä£¬×ö¹ýµÄÍøÒ³¾Í²»ÄÜ·ÃÎÊÁË£¬ÓÖµÃÖØÐÂ×¢²á£¬ÖØÐÂÉÏ´«¡£<br>
-        <br>
-        µÈ×Ô¼ºÓÐÒ»Ð©×Ê½ðºÍ¼¼Êõºó£¬ÎÒ¿ªÊ¼ÂòÓòÃûºÍ¿Õ¼ä¡£´ÓÒ»¿ªÊ¼£¬ÎÒ¾ÍÃ»Ïë¹ýÖ»ÊÇÁ·Á·ÊÖ£¬»òÕßÓÃÒ»¶ÎÊ±¼ä¾ÍÐÐÁË¡£ÎÒ»áÒ»Ö±ÓÃÏÂÈ¥£¬ËùÒÔ¾«ÐÄÌôÑ¡ÁËÓòÃûºÍ¿Õ¼ä¡£ÕâÐ©Äê³ýÁËÓòÃûÃ»ÓÐ¸ü»»Íâ£¬ºóÌ¨³ÌÐòÓÉasp»»³ÉÁËphp£¬¿Õ¼ä´ÓÎ÷²¿Êý¾Ý»»³ÉÍòÍø£¬Ò²¾ÍÊÇÏÖÔÚµÄ°¢ÀïÔÆ¡£Ò»²½²½Éý¼¶£¬¾ÍÏë°Ñ×îºÃµÄÒ»Ãæ³ÊÏÖ¸ø´ó¼Ò¡£ºÜ¶àÈËÎÊÎÒÍøÕ¾ËÙ¶ÈÔõÃ´·ÃÎÊÄÇÃ´¿ì£¬ÆäÊµÒ»ÊÇÍøÕ¾³ÌÐò£¬Ò³Ãæ×îºÃÊÇ¾²Ì¬Ò³Ãæ¡£Ã¿´ÎÎÒÐ´µÄ´úÂëµÄÊ±ºò£¬ÎÒ¶¼ÔÚ×ÁÄ¥ÔõÃ´¼õÉÙ´úÂë£¬¼õÉÙÊ¹ÓÃdivºÍÍ¼Æ¬£¬ÈÃhtml½á¹¹¼òµ¥»¯£¬¶øÓÖ²»Ê§ÃÀ¹Û¡£ËùÒÔ£¬ÍøÕ¾Ò²¸Ä°æÁËÓÐºÃ¼¸´Î¡£¶þÊÇ¿Õ¼ä»¹ÓÐ´ø¿í¡£Õâ¸öÆäÊµºÜÖØÒª£¬ÏÖÔÚ±¸°¸¸úÒÔÇ°±È£¬¿ìºÜ¶àÁË£¬¿ìµÄ»°Ò»ÐÇÆÚ£¬ÂýµÄ»°¶¥¶à¶þÊ®Ìì¡£ËùÒÔ£¬²»ÊÇÒòÎªÌØ×Å¼±µÄ»°£¬»¹ÊÇÓÃ¹úÄÚ¿Õ¼ä¡£¹ØÓÚ¹úÍâ¿Õ¼ä£¬ÆäÊµÏÖÔÚ°¢ÀïÔÆµÄÏã¸ÛÐéÄâÖ÷»úÒ²²»´í£¬·ÃÎÊ»¹ÊÇÉÏ´«¶¼±ÈÒÔÇ°ºÃºÜ¶àÁË¡£ÓÃËüµÄÐ¡»ï°éÒ²Í¦¶à¡£ÑÓÉìÔÄ¶Á ¡¶<u><a href="http://www.yangqq.com/jstt/web/2014-01-18/644.html" target="_blank">ÎÒµÄ¸öÈË²©¿ÍÖ®¡ª¡ª°¢ÀïÔÆ¿Õ¼äÑ¡Ôñ</a></u>¡·<br>
-        <br>
-        <img alt="" src="images/3.jpg"><br>
-        <br>
-        ¸öÈË²©¿Í£¬ÓÃÀ´×öÊ²Ã´£¿ÎÒ¸Õ¿ªÊ¼¾Í°ÑËüµ±×öÒ»¸öÎÒÍÂ²ÛÐÄÇéµÄµØ·½£¬Ò²¾ÍÏàµ±ÓÚÒ»¸öÍøÂç¼ÇÊÂ±¾£¬Ð´ÉÏÒ»Ð©¹ØÓÚ×Ô¼ºÉú»î¹¤×÷ÖÐµÄÐ¡ÇéÐ¡ÊÂ£¬Ò²»á·ÅÉÏÒ»Ð©ÕÕÆ¬£¬ÒôÀÖ¡£Ã¿Ìì¹¤×÷»Ø¼Òºó¾ÍÄÜ·ÃÎÊ×Ô¼ºµÄÍøÕ¾£¬Ò»±ßÌý×ÅÒôÀÖ£¬Ò»±ßÐ´Ð´ÎÄÕÂ¡£ËäÈ»·ÃÎÊÈËÊýÉÙ£¬ÎÒÒ²²»ÔÚºõÕâÐ©£¬¸öÈË²©¿Í¾ÍºÃÏñÎÒ×Ô¼ºµÄÒ»¸öÈÕ¼Ç±¾£¬À´¿úÌ½µÄÈË¶àÁË£¬·´¶ø²»×ÔÔÚÁË¡£ÒòÎª²©¿Í£¬ÎÒ»¹ÊÇ½»ÁË²»ÉÙÅóÓÑ¡£ÎÒÍøÕ¾Ö®Ç°µÄlogo¾ÍÊÇÍøÓÑ¸øÎÒÉè¼ÆµÄ¡£<br>
-        <br>
-        ºóÀ´£¬Ò²ÊÇÒòÎªÍ¬Ñ§Ëµ°Ù¶ÈËÑ²»×ÅÎÒµÄ¸öÈË²©¿Í£¬ÎÒ²Å¿ªÊ¼×ÁÄ¥ÔõÃ´°Ñ×Ô¼ºµÄ²©¿ÍÅÅÃûÌáÉÏÈ¥£¬·ÅÉÏÈ¥Ò»Ð©×Ô¼º×ö¹ýµÄÄ£°å£¬Ìá¹©Ãâ·ÑÏÂÔØ¡£Ò³ÃæÒÔÇ°Ò²Ö»ÓÐÒ»¸öÊ×Ò³£¬µ±³õÎÒ¾ÍÊÇÏë×ÅÉè¼ÆÒ»¸öÊ×Ò³¾ÍÐÐÁË£¬ÕæÕýÏëÑ§µÄÈË£¬Ò»¸öÒ³Ãæ×ã¹»ÁË£¬ÆäËûÒ³Ãæ£¬¶¼¿¿×Ô¼ºÉè¼Æ¡£ÏÖÔÚ²»Í¬À²£¬½üÆÚ°æ±¾ÎÒÌá¹©µÄÄ£°å¶¼ºÜÈ«£¬ÊµÔÚÊÇ¼Ü²»×¡ÈË¶à¶¼À´ÎÊÎÒÔõÃ´Ö»ÓÐÒ»¸öÒ³Ãæ£¬ËäÈ»ÎÒÒÑ¾­ÔÚÏÂÔØËµÃ÷ÀïÃæËµµÃºÜÇå³þÁË¡£Ò²¾ÍÊÇÌá¹©ÁËÕâÑùÒ»Ð©×ÊÔ´£¬ÎÒµÄ¸öÈË²©¿ÍÒ²²»ÔÙÊÇÒ»¸öÖ»¹Øºõ×Ô¼ºµÄÒ»¸öÆ½Ì¨¡£ÆØ¹âÂÊÔ½À´Ô½¸ß£¬¹âÌì»¯ÈÕÖ®ÏÂ£¬ÄÄ¸Ò·Å×Ô¼ºÕÕÆ¬£¬Ð´×Ô¼ºÐÄÇé°¡£¬ÓÚÊÇºõ£¬¼ÌÐøÕâÑùµÄÄ£Ê½°É£¬°Ñ×Ô¼ºÐ´µÄÄ£°å·Åµ½ÍøÕ¾ÉÏÈ¥¡£ÀÖÓÚ·ÖÏí£¬ÊÇÄÜ½á½»µ½ºÜ¶àÅóÓÑµÄ¡£<br>
-        <br>
-        ÎÒµÄ¸öÈË²©¿Í£¬ÔÚ½ñÄêÈýÔÂ·ÝÖ®Ç°ÊÇÃ»ÓÐÌá¹©ºóÌ¨°²×°£¬µ÷ÊÔÕâÐ©·þÎñµÄ¡£ÆäÊµÒ»Ö±¶¼ÓÐÈËÕÒÎÒ×ö¸öÈË²©¿Í£¬ÒòÎªµ÷ÊÔÊ±¼ä»¹ÓÐÐÞ¸ÄµÄÎÊÌâ£¬´ÓÉÏ´«µ½°²×°µ½ÐÞ¸Äµ÷ÊÔ£¬Ò»°ãÒªËÄÎå¸öÐ¡Ê±£¬ÎÒÅÂÊÕ·Ñ¸ß£¬ËùÒÔÒ»Ö±¶¼ÊÇ¾Ü¾øµÄ¡£×Ô´ÓÍÆ³öÀ´¡¶<u><a href="http://www.yangqq.com/download/div/2017-09-08/789.html" target="_blank">ÐÄÀ¶Ê±¼äÖá</a></u>¡·ºó£¬Ö÷¶¯ÕÒÎÒ×öÍøÕ¾µÄÒ²¶àÁË£¬ËûÃÇ¶¼ËµÊÇÎÒ·ÛË¿£¬Ï²»¶ÎÒµÄÄ£°å£¬ËùÒÔÎÒÔÚÄ£°åÏÂÃæÐ´ÁË¸¶·ÑËµÃ÷£¬ÎÒµÄ¸öÈË²©¿ÍÒ²¿ªÊ¼ÓÐÁË¸¶·ÑÏîÄ¿¡£<br>
-        <br>
-        <img alt="" src="images/4.jpg"><br>
-        <br>
-        ÎÒ½Óµ½µÄµÚÒ»µ¥£¬ÊÇÒ»Î»¸¸Ç×£¬Ïë¸ø×Ô¼ÒµÄ±¦±´½¨Á¢Ò»¸ö²©¿Í¡£ËûËµËûÏëÂòÒ»¸öÓòÃû£¬Ì¸ÁËºÃ¼¸Ìì£¬×îÖÕ»¨ÁË8000¶à¹ºÂòµ½£¬ÎÒÍ¦¾´ÅåËûµÄ£¬¶Ôº¢×ÓµÄ°®£¬ºÁ²»ÁßØÄ¡£ÓòÃû¹ÌÈ»ÖØÒª£¬ÆäÊµÎÒÏëËµ¼á³ÖÓÃ²©¿ÍÀ´¼ÇÂ¼±¦±´³É³¤µãµÎ£¬²ÅÊÇ×îÓÐ¼ÛÖµµÄ¡£µÚ¶þµ¥ÊÇÒ»¸öÔÄ¶ÁÍøÕ¾£¬´Ó¼ÓËûµ½¸úËûÁÄ£¬¿´ËûÅóÓÑÈ¦£¬ºÜÓÐ²ÅÆøµÄÒ»¸öÈË£¬Ò²Ïàµ±ÓÐ°®ÐÄ£¬ËûµÄÍøÕ¾´ó²¿·ÖÊÇ·ÖÏí¸øÒ»Ð©°®ºÃÔÄ¶ÁµÄ³¤Õß¡£»¹ÓÐÐ©¾ÍÊÇ¼¼ÊõÀàµÄÕ¾³¤£¬×ö×ÊÑ¶£¬×öÂÃÓÎ£¬×öÍÆ¹ãµÄ¡£Í¨³££¬´ÓÑ¡µÄÄ£°å¾ÍÄÜ¿´³öÀ´ÍøÕ¾ÀàÐÍ¡£¡¶<u><a href="http://www.yangqq.com/download/div/2017-09-08/789.html">ÐÄÀ¶Ê±¼äÖá</a></u>¡·Æ«¸öÈË£¬¡¶<u><a href="http://www.yangqq.com/download/div/2018-03-18/807.html">ÉðÊ¿</a></u>¡·£¬¡¶<u><a href="http://www.yangqq.com/download/div/2018-04-22/815.html" target="_blank">¸ñµ÷</a></u>¡·Æ«¼¼Êõ£¬×ÊÑ¶¡£¡¶<u><a href="http://www.yangqq.com/download/div/2018-04-18/814.html" target="_blank">ÇåÑÅ</a></u>¡·£¬¡¶<u><a href="http://www.yangqq.com/download/div/2017-07-16/785.html" target="_blank">Ë®Ä«¹Åµä</a></u>¡·Æ«ÎÄÒÕ¡£µ«Ò²ÓÐ¶ÔÎÒ·À±¸ÐÄµÄ£¬±ÈÈçËµ¸¶¿î·½Ê½£¬ÄÜ²»ÄÜ×ßÌÔ±¦£¬ÕâÐ©ÎÒÒ²ÄÜÀí½â£¬µ«ÊÇÓÐÐ©°É£¬´ÓÒ»¿ªÊ¼ÁÄ£¬¸Ð¾õ¾Í²»Ì«ºÃ£¬ÀíÓ¦¾ÍÈÏÎª²»Ó¦¸ÃÊÕÇ®£¬ÊÕÇ®¸ÉÂï£¬µ½´¦¶¼ÊÇÃâ·ÑµÄ£¬Ìýµ½ÕâÐ©£¬ÎÒÒ²ÂýÂý½âÊÍ¡£ÆäÊµËûÃÇ²¢²»ÁË½âÎÒ£¬ÁË½âÎÒµÄÍøÕ¾£¬Ö»ÒªÊÇ´ÓÎÒ²©¿ÍÀ´µÄ£¬¹Ø×¢¹ýÒ»¶ÎÊ±¼äµÄ£¬¶¼ÖªµÀÇà½ãµÄÈËÆ·ÊÇÕ¦ÑùµÄ¡£ÓÃ¡°ÐÄÈû¡±Õâ¸ö´Ê£¬ºÁ²»Îª¹ý°É¡£<br>
-        <br>
-        ÎÒ×ö¹ýµÄÍøÕ¾£¬Ã¿¹ýÒ»¶ÎÊ±¼ä£¬ÎÒ¶¼»áÒ»¸ö¸öµã»÷¿´¿´½øÕ¹ÔõÃ´Ñù£¬¸öÈË²©¿Í£¬²»ÏñÕæÊµµÄÃæ¶ÔÃæÁÄ£¬¸ü¶àµÄÊÇÎÄ×ÖµÄ½»Á÷£¬²»µÃ²»ËµÓÐÊ±ºòÎÄ×Ö´«´ïµÄÐÅÏ¢¸üÄÜÁË½âÒ»¸öÈË£¬ÉõÖÁÓÐÐÄÁé¹²Ãù¡£ÎÒÏëÎÒ»¹»áÔÙÖØÐÂ×öÒ»¸ö½ö½öÊôÓÚ×Ô¼ºµÄ¸öÈË²©¿Í£¬Èç¹ûÄãÒ²ÏëÒª×öÒ»¸ö²©¿Í£¬ÓÃÀ´¼ÇÂ¼×Ô¼ºµÄ¼ÒÍ¥£¬¹¤×÷£¬Éú»î£¬»òÕßÌÖÅ®ÓÑ»¶ÐÄ£¬²»·ÁÏÖÔÚ¾Í¿ªÊ¼°É£¡<br>
-        <br>
+      <div class="tags"><a href="/" target="_blank">{{ article.category.name }}</a></div>
+      <div class="news_about"><strong>ç®€ä»‹</strong>{{ article.desc }}</div>
+      <div class="news_con">
+          {{ article.content|safe }}
         &nbsp; </div>
     </div>
     <div class="share">
-      <p class="diggit"><a href="JavaScript:makeRequest('/e/public/digg/?classid=3&amp;id=19&amp;dotop=1&amp;doajax=1&amp;ajaxarea=diggnum','EchoReturnedText','GET','');"> ºÜÔÞÅ¶£¡ </a>(<b id="diggnum"><script type="text/javascript" src="/e/public/ViewClick/?classid=2&id=20&down=5"></script>13</b>)</p>
+      <p class="diggit"><a href="JavaScript:makeRequest('/e/public/digg/?classid=3&amp;id=19&amp;dotop=1&amp;doajax=1&amp;ajaxarea=diggnum','EchoReturnedText','GET','');"> å¾ˆèµžå“¦ï¼ </a>(<b id="diggnum"><script type="text/javascript" src="/e/public/ViewClick/?classid=2&id=20&down=5"></script>13</b>)</p>
     </div>
     <div class="nextinfo">
-      <p>ÉÏÒ»Æª£º<a href="/news/life/2018-03-13/804.html">×÷ÎªÒ»¸öÉè¼ÆÊ¦,Èç¹ûÔâµ½ÖÊÒÉÄãÊÇ·ñÄÜã¡ÊØ×Ô¼ºµÄÔ­Ôò?</a></p>
-      <p>ÏÂÒ»Æª£º<a href="/news/life/">·µ»ØÁÐ±í</a></p>
+      <p>ä¸Šä¸€ç¯‡ï¼š<a href="{% url 'article:article_detail' article_id=back_article.pk %}">{{ back_article.title }}</a></p>
+      <p>ä¸‹ä¸€ç¯‡ï¼š<a href="{% url 'article:article_detail' article_id=next_article.pk %}">{{ next_article.title }}</a></p>
     </div>
     <div class="news_pl">
-      <h2>ÎÄÕÂÆÀÂÛ</h2>
+      <h2>æ–‡ç« è¯„è®º</h2>
       <ul>
         <div class="gbko"> </div>
       </ul>
@@ -118,68 +49,66 @@
   </main>
   <aside class="r_box" >
       <div class="wdxc">
-        <h2>Í¼ÎÄ¾«Ñ¡</h2>
+        <h2>å›¾æ–‡ç²¾é€‰</h2>
         <ul>
-          <li><a href="/"><img src="images/7.jpg"></a></li>
-          <li><a href="/"><img src="images/8.jpg"></a></li>
-          <li><a href="/"><img src="images/9.jpg"></a></li>
-          <li><a href="/"><img src="images/10.jpg"></a></li>
-          <li><a href="/"><img src="images/11.jpg"></a></li>
-          <li><a href="/"><img src="images/12.jpg"></a></li>
+          <li><a href="/"><img src="{% static 'images/7.jpg' %}"></a></li>
+          <li><a href="/"><img src="{% static 'images/8.jpg' %}"></a></li>
+          <li><a href="/"><img src="{% static 'images/9.jpg' %}"></a></li>
+          <li><a href="/"><img src="{% static 'images/10.jpg' %}"></a></li>
+          <li><a href="/"><img src="{% static 'images/11.jpg' %}"></a></li>
+          <li><a href="/"><img src="{% static 'images/12.jpg' %}"></a></li>
         </ul>
       </div>
        <div class="fenlei">
-        <h2>ÎÄÕÂ·ÖÀà</h2>
+        <h2>æ–‡ç« åˆ†ç±»</h2>
         <ul>
-          <li><a href="/">Ñ§ÎÞÖ¹¾³£¨33£©</a></li>
-          <li><a href="/">ÈÕ¼Ç£¨19£©</a></li>
-          <li><a href="/">ÂýÉú»î£¨520£©</a></li>
-          <li><a href="/">ÃÀÎÄÐÀÉÍ£¨40£©</a></li>
+          <li><a href="/">å­¦æ— æ­¢å¢ƒï¼ˆ33ï¼‰</a></li>
+          <li><a href="/">æ—¥è®°ï¼ˆ19ï¼‰</a></li>
+          <li><a href="/">æ…¢ç”Ÿæ´»ï¼ˆ520ï¼‰</a></li>
+          <li><a href="/">ç¾Žæ–‡æ¬£èµï¼ˆ40ï¼‰</a></li>
         </ul>
       </div>
       <div class="cloud">
-        <h2>±êÇ©ÔÆ</h2>
+        <h2>æ ‡ç­¾äº‘</h2>
         <ul>
-          <a href="/">Ä°ÉÏ»¨¿ª</a> <a href="/">Ð£Ô°Éú»î</a> <a href="/">html5</a> <a href="/">SumSung</a> <a href="/">Çà´º</a> <a href="/">ÎÂÅ¯</a> <a href="/">Ñô¹â</a> <a href="/">ÈýÐÇ</a><a href="/">Ë÷Äá</a> <a href="/">»ªÎ¬ÈÙÒ«</a> <a href="/">ÈýÐÇ</a> <a href="/">Ë÷Äá</a>
+          <a href="/">é™Œä¸ŠèŠ±å¼€</a> <a href="/">æ ¡å›­ç”Ÿæ´»</a> <a href="/">html5</a> <a href="/">SumSung</a> <a href="/">é’æ˜¥</a> <a href="/">æ¸©æš–</a> <a href="/">é˜³å…‰</a> <a href="/">ä¸‰æ˜Ÿ</a><a href="/">ç´¢å°¼</a> <a href="/">åŽç»´è£è€€</a> <a href="/">ä¸‰æ˜Ÿ</a> <a href="/">ç´¢å°¼</a>
         </ul>
       </div>
       <div class="tuijian">
-        <h2 id="tab"><a href="#"class="current">µã»÷ÅÅÐÐ</a><a href="#">Õ¾³¤ÍÆ¼ö</a></h2>
+        <h2 id="tab"><a href="#"class="current">ç‚¹å‡»æŽ’è¡Œ</a><a href="#">ç«™é•¿æŽ¨è</a></h2>
         <div id="content">
           <ul style="display:block;">
-            <li><a href="/">µÚ¶þ½ì ÓÅÐã¸öÈË²©¿ÍÄ£°å±ÈÈü²ÎÑ¡»î¶¯</a></li>
-            <li><a href="/">¡¾»î¶¯×÷Æ·¡¿ÄûÃÊÂÌÍÃÐ¡°×¸öÈË²©¿ÍÄ£°å</a></li>
-            <li><a href="/">µÛ¹úcms ÁÐ±íÒ³µ÷ÓÃ×ÓÀ¸Ä¿£¬Ã»ÓÐÔò²»ÏÔÊ¾À¸Ä¿Ãû³Æ</a></li>
-            <li><a href="/">2014Äê¶ÈÓÅÐã¸öÈË²©¿ÍÆÀÑ¡»î¶¯</a></li>
-            <li><a href="/">ÄãÊÇÊ²Ã´ÈË±ã»áÓöÉÏÊ²Ã´ÈË</a></li>
-            <li><a href="/">µÛ¹úcms ÁÐ±íÒ³µ÷ÓÃ×ÓÀ¸Ä¿£¬Ã»ÓÐÔò²»ÏÔÊ¾À¸Ä¿Ãû³Æ</a></li>
-            <li><a href="/">µÚ¶þ½ì ÓÅÐã¸öÈË²©¿ÍÄ£°å±ÈÈü²ÎÑ¡»î¶¯</a></li>
-            <li><a href="/">¸öÈË²©¿ÍÄ£°å¡¶ÉðÊ¿¡·ºóÌ¨¹ÜÀí</a></li>
+            <li><a href="/">ç¬¬äºŒå±Š ä¼˜ç§€ä¸ªäººåšå®¢æ¨¡æ¿æ¯”èµ›å‚é€‰æ´»åŠ¨</a></li>
+            <li><a href="/">ã€æ´»åŠ¨ä½œå“ã€‘æŸ æª¬ç»¿å…”å°ç™½ä¸ªäººåšå®¢æ¨¡æ¿</a></li>
+            <li><a href="/">å¸å›½cms åˆ—è¡¨é¡µè°ƒç”¨å­æ ç›®ï¼Œæ²¡æœ‰åˆ™ä¸æ˜¾ç¤ºæ ç›®åç§°</a></li>
+            <li><a href="/">2014å¹´åº¦ä¼˜ç§€ä¸ªäººåšå®¢è¯„é€‰æ´»åŠ¨</a></li>
+            <li><a href="/">ä½ æ˜¯ä»€ä¹ˆäººä¾¿ä¼šé‡ä¸Šä»€ä¹ˆäºº</a></li>
+            <li><a href="/">å¸å›½cms åˆ—è¡¨é¡µè°ƒç”¨å­æ ç›®ï¼Œæ²¡æœ‰åˆ™ä¸æ˜¾ç¤ºæ ç›®åç§°</a></li>
+            <li><a href="/">ç¬¬äºŒå±Š ä¼˜ç§€ä¸ªäººåšå®¢æ¨¡æ¿æ¯”èµ›å‚é€‰æ´»åŠ¨</a></li>
+            <li><a href="/">ä¸ªäººåšå®¢æ¨¡æ¿ã€Šç»…å£«ã€‹åŽå°ç®¡ç†</a></li>
           </ul>
           <ul>
-            <li><a href="/">¸öÈË²©¿Í£¬ÎÒÎªÊ²Ã´ÒªÓÃµÛ¹úcms£¿</a></li>
-            <li><a href="/">DÉè¼ÆÊ¦²©¿Í-Ò»¸öÈÈ°®Éú»îµÄÉè¼ÆÊ¦</a></li>
-            <li><a href="/">¶«Ðù²©¿Í£¬ÎÒ¿´µ½ÁËÄãµÄ¼á³Ö£¡</a></li>
-            <li><a href="/">³ÌÐòÔ±´´Òµ£¬¾ÍµÃ¡°»íµÃ³öÈ¥¡±£¡</a></li>
-            <li><a href="/">ÕÅ½¨»ª Ò»¸ö90ºóÄêÇáÕ¾³¤£¡ÎÒÃÇÊÇ¶ÔÊÖÒàÊÇÅóÓÑ£¡</a></li>
-            <li><a href="/">¡¶·Ü¶·µçÉÌ¡·¿´ÖªÃûÎ¢ÉÌÈçºÎ×ö²©¿ÍÒýÁ÷£¿</a></li>
-            <li><a href="/">¡¶Ñ°Ö®ÂÃ¡·Ò»¸ö¹ØÓÚÂÃÓÎ£¬ÓÎ¼ÇµÄ¸öÈË²©¿Í</a></li>
-            <li><a href="/">¡¾´Ò´ÒÄÇÐ©Äê¡¿×Ü½á¸öÈË²©¿Í¾­ÀúµÄÕâËÄÄê</a></li>
+            <li><a href="/">ä¸ªäººåšå®¢ï¼Œæˆ‘ä¸ºä»€ä¹ˆè¦ç”¨å¸å›½cmsï¼Ÿ</a></li>
+            <li><a href="/">Dè®¾è®¡å¸ˆåšå®¢-ä¸€ä¸ªçƒ­çˆ±ç”Ÿæ´»çš„è®¾è®¡å¸ˆ</a></li>
+            <li><a href="/">ä¸œè½©åšå®¢ï¼Œæˆ‘çœ‹åˆ°äº†ä½ çš„åšæŒï¼</a></li>
+            <li><a href="/">ç¨‹åºå‘˜åˆ›ä¸šï¼Œå°±å¾—â€œè±å¾—å‡ºåŽ»â€ï¼</a></li>
+            <li><a href="/">å¼ å»ºåŽ ä¸€ä¸ª90åŽå¹´è½»ç«™é•¿ï¼æˆ‘ä»¬æ˜¯å¯¹æ‰‹äº¦æ˜¯æœ‹å‹ï¼</a></li>
+            <li><a href="/">ã€Šå¥‹æ–—ç”µå•†ã€‹çœ‹çŸ¥åå¾®å•†å¦‚ä½•åšåšå®¢å¼•æµï¼Ÿ</a></li>
+            <li><a href="/">ã€Šå¯»ä¹‹æ—…ã€‹ä¸€ä¸ªå…³äºŽæ—…æ¸¸ï¼Œæ¸¸è®°çš„ä¸ªäººåšå®¢</a></li>
+            <li><a href="/">ã€åŒ†åŒ†é‚£äº›å¹´ã€‘æ€»ç»“ä¸ªäººåšå®¢ç»åŽ†çš„è¿™å››å¹´</a></li>
           </ul>
         </div>
       </div>
       <div class="guanzhu">
-        <h2>¹Ø×¢ÎÒ Ã´Ã´ßÕ</h2>
+        <h2>å…³æ³¨æˆ‘ ä¹ˆä¹ˆå“’</h2>
         <ul>
-          <img src="images/wx.jpg">
+          <img src="{% static 'images/wx.jpg' %}">
         </ul>
       </div>
 
   </aside>
 </article>
-<footer>
-  <p>Design by <a href="http://www.yangqq.com" target="_blank">ÑîÇà¸öÈË²©¿Í</a> <a href="/">ÊñICP±¸11002373ºÅ-1</a></p>
-</footer>
-<a href="#" class="cd-top">Top</a>
-</body>
-</html>
+{% endblock %}
+
+
+

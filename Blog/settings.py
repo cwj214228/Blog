@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'apps.article',
     'apps.ueditor',
     'apps.cms',
+    'apps.time_axis',
+    'apps.auth_blog',
+    'apps.write_basicinformation',
+    'apps.work_experience',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +112,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'auth_blog.User'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211'
+    }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -150,7 +161,7 @@ UEDITOR_QINIU_SECRET_KEY = QINIU_SECRET_KEY
 UEDITOR_QINIU_BUCKET_NAME = QINIU_BUCKET_NAME
 UEDITOR_QINIU_DOMAIN = QINIU_DOMAIN
 
-UEDITOR_UPLOAD_TO_SERVER = True
+UEDITOR_UPLOAD_TO_SERVER = False
 UEDITOR_UPLOAD_PATH = MEDIA_ROOT
 
 UEDITOR_CONFIG_PATH = os.path.join(BASE_DIR, 'front', 'src', 'ueditor', 'config.json')
