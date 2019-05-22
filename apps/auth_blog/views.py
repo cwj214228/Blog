@@ -36,7 +36,7 @@ def login_data(request):
                     request.session.set_expiry(None)
                 else:
                     request.session.set_expiry(0)
-                return render(request,'cms/cms_data.html')
+                return restful.ok()
             else:
                 return restful.unauth(message="您的账号已经被冻结")
         else:

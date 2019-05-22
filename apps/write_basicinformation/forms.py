@@ -11,4 +11,5 @@ class BasicInformationForm(forms.Form):
     email = forms.EmailField(error_messages={'required': 'Email也必须要填写哦！', 'invalid': "邮箱格式不对"})
     github = forms.URLField(error_messages={'required': 'Github必须要填写哦！', 'invalid': "github网址格式不对"})
     head_image = forms.URLField(error_messages={'required': '头像必须上传哦！', 'invalid': "头像网址格式不对"})
+    wechat = forms.URLField(error_messages={'required': '二维码图片必须上传哦！', 'invalid': "二维码图片网址格式不对"})
     introduction = forms.Textarea()

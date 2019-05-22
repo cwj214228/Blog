@@ -47,10 +47,16 @@ class User(AbstractBaseUser,PermissionsMixin):
     def get_short_name(self):
         return self.username
 
+    class Meta:
+        db_table = 'user'
+
 
 class UserShow(models.Model):
     user = models.ForeignKey("User", on_delete=models.CASCADE, null=True)
     username = models.CharField(max_length=50)
     telephone = models.CharField(max_length=11)
     email = models.EmailField(null=True, default="")
+
+    class Meta:
+        db_table = 'usershow'
 

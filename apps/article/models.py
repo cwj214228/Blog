@@ -7,6 +7,9 @@ class ArticleCategory(models.Model):
     name = models.CharField(max_length=50)
     article_num = models.IntegerField(default=0)
 
+    class Meta:
+        db_table = 'articlecategory'
+
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
@@ -21,3 +24,13 @@ class Article(models.Model):
 
     class Meta:
         ordering = ['-pub_time']
+        db_table = 'article'
+
+
+class Article_ReadNum(models.Model):
+    num = models.IntegerField()
+    user = models.ForeignKey("auth_blog.User", on_delete=models.CASCADE, null=True)
+    article = models.ForeignKey("article.Article", on_delete=models.CASCADE, null=True)
+
+    class Meta:
+        db_table = 'article_readnum'

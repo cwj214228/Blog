@@ -139,7 +139,13 @@ Auth.prototype.listenSigninEvent = function () {
                 csrfmiddlewaretoken: token
             },
             success: function (result) {
-                window.location.href="/cms/";
+                console.log(result);
+                if (result['code']===200){
+                    window.location.href="/cms/";
+                } else {
+                    window.messageBox.showError(result.message);
+                }
+
             }
         });
     });

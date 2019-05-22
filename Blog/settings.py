@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'apps.auth_blog',
     'apps.write_basicinformation',
     'apps.work_experience',
+    'apps.about',
+    'apps.blog_diary',
+    'apps.clicknum',
 ]
 
 MIDDLEWARE = [

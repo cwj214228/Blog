@@ -24,13 +24,12 @@
 <body>
 <header class="header-navigation" id="header">
   <nav>
-    <div class="logo"><a href="http://www.yangqq.com">蜗牛个人博客</a></div>
+    <div class="logo"><a href="/?user_id={{ user.user_id }}">蜗牛个人博客</a></div>
     <h2 id="mnavh"><span class="navicon"></span></h2>
     <ul id="starlist">
-        <li><a href="/">网站首页</a></li>
-        <li><a href="about.html">关于我</a></li>
-        <li><a href="share.html">模板分享</a></li>
-        <li><a href="list.html">博客日记</a></li>
+        <li><a href="/?user_id={{ user.user_id }}">网站首页</a></li>
+        <li><a href="{% url 'about:about_me' %}?user_id={{ user.user_id }}">关于我</a></li>
+        <li><a href="{% url 'blog_diary:blog_diary' %}?user_id={{ user.user_id }}">博客日记</a></li>
         <li class="menu"><a href="fengmian.html">学无止境</a>
         {% block header_li %}
 
@@ -40,7 +39,7 @@
           <li><a href="#">美文欣赏</a></li>
         </ul>
       </li>
-      <li><a href="{% url 'time_axis:title_list' %}">时间轴</a></li>
+      <li><a href="{% url 'time_axis:title_list' %}?user_id={{ user.user_id }}">时间轴</a></li>
     </ul>
     <div class="searchbox">
     <div id="search_bar" class="search_bar">
@@ -57,6 +56,10 @@
   </nav>
 </header>
 {% block article %}
+
+{% endblock %}
+
+{% block main %}
 
 {% endblock %}
 <footer>

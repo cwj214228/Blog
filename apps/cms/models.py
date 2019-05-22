@@ -11,5 +11,6 @@ class Banner(models.Model):
 
     class Meta:
         ordering = ['-priority']
+        db_table = 'banner'
 
 

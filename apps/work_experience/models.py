@@ -17,3 +17,6 @@ class WorkExperience(models.Model):
     work_skill_three = models.CharField(max_length=200, null=True)
     work_skill_four = models.CharField(max_length=200, null=True)
     work_skill_five = models.CharField(max_length=200, null=True)
+
+    class Meta:
+        db_table = 'workexperience'

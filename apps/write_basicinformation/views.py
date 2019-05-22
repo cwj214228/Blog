@@ -16,14 +16,15 @@ def basic_information(request, user_id):
         email = form.cleaned_data.get('email')
         github = form.cleaned_data.get('github')
         head_image = form.cleaned_data.get('head_image')
+        wechat = form.cleaned_data.get('wechat')
         User.objects.filter(uid=user_id).update(head_image=head_image)
         exists = BasicInformation.objects.filter(user_id=user_id).exists()
         if not exists:
             BasicInformation.objects.create(user_id=user_id, sex=sex, age=age, email=email, github=github,
-                                            introduction=introduction, head_image=head_image)
+                                            introduction=introduction, head_image=head_image, wechat=wechat)
         else:
-            BasicInformation.objects.update(user_id=user_id, sex=sex, age=age, email=email, github=github,
-                                            introduction=introduction, head_image=head_image)
+            BasicInformation.objects.filter(user_id=user_id).update(sex=sex, age=age, email=email, github=github,
+                                                                    introduction=introduction, head_image=head_image, wechat=wechat)
         return restful.ok()
     else:
         return restful.params_error(message=form.errors)

@@ -13,13 +13,14 @@ User.prototype.initUEditor = function () {
 
 
 User.prototype.listenSubmitEvent = function () {
-    console.log('ssssss')
+    console.log('ssssss');
     var submitBtn = $("#submit-btn");
     var usernameInput = $(".box-body input[name='username']");
     var ageInput = $(".box-body input[name='age']");
     var emailInput = $(".box-body input[name='email']");
     var githubInput = $(".box-body input[name='github']");
     var head_image = $(".box-body input[name='thumbnail']");
+    var wechat_image = $(".box-body input[name='wechat-thumbnail']");
     var box_body = $(".box-body");
 
 
@@ -34,6 +35,7 @@ User.prototype.listenSubmitEvent = function () {
         github = githubInput.val();
         user_pk = box_body.attr("user-id");
         imge = head_image.val();
+        wechat = wechat_image.val();
         var token = $('input[name=csrfmiddlewaretoken]').val();
 
         console.log(imge)
@@ -48,6 +50,7 @@ User.prototype.listenSubmitEvent = function () {
                 introduction:editorInput,
                 sex:option,
                 head_image:imge,
+                wechat:wechat,
                 csrfmiddlewaretoken: token
             },
             success: function (result) {

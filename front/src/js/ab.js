@@ -58,27 +58,27 @@ $(document).ready(function () {
 	//
  
  (function(){
-    var len = 100; // Ä¬ÈÏÏÔÊ¾µÄ×ÖÊý
-    var content = document.getElementById("content"); // content »ñÈ¡ÄÚÈÝ div ¶ÔÏó
-    var text = content.innerHTML;  // text ÎªÄÚÈÝ
-    var span = document.createElement("span"); // ´´½¨Ò»¸ö SPAN ±êÇ©
-    var n = document.createElement("a");  // ´´½¨Ò»¸ö A ±êÇ©
-    span.innerHTML = text.substring(0,len); // SPAN ±êÇ©µÄÄÚÈÝÎª text µÄÇ° len ¸ö×Ö·û
-    n.innerHTML = text.length > len ? "...Õ¹¿ª" : ""; // ´´½¨µÄ A ±êÇ©ÄÚÈÝ£¬Èç¹ûÄÚÈÝ×ÖÊý´óÓÚ len£¬ÄÇÃ´Îª¡°..Õ¹¿ª¡±£¬·ñÔòÎª¿Õ
-    n.href = "javascript:void(0)"; // ÉèÖÃ A ±êÇ©µÄÁ´½ÓµØÖ·£¨ËæÒâ£©
-    n.onclick = function(){ // µã»÷ A Á´½ÓÖ´ÐÐÏÂÃæº¯Êý
-    // Èç¹û A ±êÇ©µÄÄÚÈÝÎª¡°..Õ¹¿ª¡±£¬ÄÇÃ´ A ±êÇ©ÄÚÈÝ±ä³É¡°ÊÕÆð¡±£¬SPAN ±êÇ©µÄÄÚÈÝÎª DIV È«²¿ÄÚÈÝ£¬·ñÔòÄÚÈÝÎªÇ° len ¸ö×Ö·û
-    if (n.innerHTML == "...Õ¹¿ª"){
-      n.innerHTML = "ÊÕÆð";
+    var len = 100; // Ä¬ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    var content = document.getElementById("content"); // content ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ div ï¿½ï¿½ï¿½ï¿½
+    var text = content.innerHTML;  // text Îªï¿½ï¿½ï¿½ï¿½
+    var span = document.createElement("span"); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ SPAN ï¿½ï¿½Ç©
+    var n = document.createElement("a");  // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ A ï¿½ï¿½Ç©
+    span.innerHTML = text.substring(0,len); // SPAN ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª text ï¿½ï¿½Ç° len ï¿½ï¿½ï¿½Ö·ï¿½
+    n.innerHTML = text.length > len ? "...å±•å¼€" : ""; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ A ï¿½ï¿½Ç©ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ lenï¿½ï¿½ï¿½ï¿½Ã´Îªï¿½ï¿½..Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
+    n.href = "javascript:void(0)"; // ï¿½ï¿½ï¿½ï¿½ A ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½â£©
+    n.onclick = function(){ // ï¿½ï¿½ï¿½ A ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½æº¯ï¿½ï¿½
+    // ï¿½ï¿½ï¿½ A ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½..Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ A ï¿½ï¿½Ç©ï¿½ï¿½ï¿½Ý±ï¿½É¡ï¿½ï¿½ï¿½ï¿½ð¡±£ï¿½SPAN ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª DIV È«ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÇ° len ï¿½ï¿½ï¿½Ö·ï¿½
+    if (n.innerHTML == "...å±•å¼€"){
+      n.innerHTML = "æ”¶èµ·";
       span.innerHTML = text;
     }else{
-      n.innerHTML = "...Õ¹¿ª";
+      n.innerHTML = "...å±•å¼€";
       span.innerHTML = text.substring(0,len);
     }
    }
-    content.innerHTML = "";   // ÉèÖÃ DIV ÄÚÈÝÎª¿Õ
-    content.appendChild(span); // °Ñ SPAN ÔªËØ¼Óµ½ DIV ÖÐ
-    content.appendChild(n);   // °Ñ A ÔªËØ¼Óµ½ DIV ÖÐ
+    content.innerHTML = "";   // ï¿½ï¿½ï¿½ï¿½ DIV ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
+    content.appendChild(span); // ï¿½ï¿½ SPAN Ôªï¿½Ø¼Óµï¿½ DIV ï¿½ï¿½
+    content.appendChild(n);   // ï¿½ï¿½ A Ôªï¿½Ø¼Óµï¿½ DIV ï¿½ï¿½
   })();
 	
 	$('.navlist li').click(function(){

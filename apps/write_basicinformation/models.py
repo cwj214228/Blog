@@ -9,4 +9,8 @@ class BasicInformation(models.Model):
     email = models.EmailField(null=True)
     github = models.URLField(null=True)
     head_image = models.URLField(null=True)
+    wechat = models.URLField(null=True)
     introduction = models.TextField(null=True)
+
+    class Meta:
+        db_table = 'basicinformation'

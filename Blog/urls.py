@@ -27,4 +27,6 @@ urlpatterns = [
     path('cms/write_basicinformation/', include('apps.write_basicinformation.urls')),
     path('ueditor/', include('apps.ueditor.urls')),
     path('cms/work_experience/', include('apps.work_experience.urls')),
+    path('about_me/', include('apps.about.urls')),
+    path('blog_diary/', include('apps.blog_diary.urls')),
 ]
