@@ -97,7 +97,7 @@ Image.prototype.handleFileUploadComplete = function (response) {
     var progressGroup = $("#progress-group");
     progressGroup.hide();
 
-    var domain = 'http://pqm5g053b.bkt.clouddn.com/';
+    var domain = 'http://myheartsky.com/';
     var filename = response.key;
     var url = domain + filename;
     var thumbnailInput = $("input[name='thumbnail']");
@@ -128,7 +128,7 @@ Image.prototype.handleFileUploadComplete2 = function (response) {
     var progressGroup = $("#progress-group2");
     progressGroup.hide();
 
-    var domain = 'http://pqm5g053b.bkt.clouddn.com/';
+    var domain = 'http://myheartsky.com/';
     var filename = response.key;
     var url = domain + filename;
     var thumbnailInput = $("input[name='wechat-thumbnail']");

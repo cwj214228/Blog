@@ -10,12 +10,19 @@
 
 
 {% block content %}
-    <div class="box box-primary" id='main' style='height:400px;width:100%;background: #ffffff'>
+    <div class="box box-primary chartdata" click-user="{{ user.pk }}" id='main' style='height:400px;width:100%;background: #ffffff'>
 
     </div>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/echarts.js' %}"></script>
     <script>
-          //基于准备好的DOM，初始化echarts实例
+        var chart = $(".chartdata");
+        var user_id = chart.attr("click-user");
+        $.ajax({
+            url: '/click_num/'+'?user_id='+user_id,
+            type: "get",
+            success: function (result) {
+                //基于准备好的DOM，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
           //指定图表的配置项和数据
         var option = {
@@ -33,7 +40,8 @@
             },
             //横轴
             xAxis:{
-                data:["2019/5/1","2019/5/2","2019/5/3","2019/5/4","2019/5/5","2019/5/6","2019/5/2","2019/5/2","2019/5/2","2019/5/2","2019/5/2","2019/5/2"]
+                {#data:["2019/5/1","2019/5/2","2019/5/3","2019/5/4","2019/5/5","2019/5/6","2019/5/2","2019/5/2","2019/5/2","2019/5/2","2019/5/2","2019/5/2"]#}
+                data:result.data.data
             },
             //纵轴
             yAxis:{},
@@ -42,10 +50,15 @@
                 name:'点击量',
                 //折线图
                 type:'line',
-                data: [5, 20, 36, 10, 10, 20, 35, 40, 15, 20, 40, 30]
+                data: result.data.num
+                {#data: [5, 20, 36, 10, 10, 20, 35, 40, 15, 20, 40, 30]#}
             }]
         };
         //使用刚指定的配置项和数据显示图表
         myChart.setOption(option);
+
+            }
+        });
+
     </script>
 {% endblock %}

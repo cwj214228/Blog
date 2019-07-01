@@ -29,4 +29,5 @@ urlpatterns = [
     path('cms/work_experience/', include('apps.work_experience.urls')),
     path('about_me/', include('apps.about.urls')),
     path('blog_diary/', include('apps.blog_diary.urls')),
+    path('click_num/', include('apps.click_num.urls')),
 ]

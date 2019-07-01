@@ -6,7 +6,8 @@ from apps.auth_blog.models import UserShow
 from django.views.decorators.http import require_POST, require_GET
 from apps.write_basicinformation.models import BasicInformation
 from apps.cms.models import Banner
-from apps.auth_blog.models import User
+from apps.click_num.models import Click_Num
+import time
 
 
 def index(request):
@@ -16,7 +17,12 @@ def index(request):
     user = UserShow.objects.get(user_id=user_id)
     user_basic_information = BasicInformation.objects.get(user_id=user_id)
     banners = Banner.objects.all()
+    try:
+        num = Click_Num.objects.get(user_id=user_id, data=time.strftime("%Y-%m-%d", time.localtime()))
+    except:
+        num = Click_Num.objects.create(user_id=user_id, data=time.strftime("%Y-%m-%d", time.localtime()), num=0)
 
+    Click_Num.objects.filter(user_id=user_id, data=time.strftime("%Y-%m-%d", time.localtime())).update(num=num.num+1)
     context = {
         'categories': categories,
         'articles': articles,

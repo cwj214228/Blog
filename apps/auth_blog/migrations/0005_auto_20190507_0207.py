@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='head_image',
-            field=models.URLField(default='http://pqm5g053b.bkt.clouddn.com/1557161400905.jpg', null=True),
+            field=models.URLField(default='http://myheartsky.com/1557161400905.jpg', null=True),
         ),
     ]

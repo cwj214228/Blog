@@ -33,7 +33,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     data_joined = models.DateTimeField(auto_now_add=True)
-    head_image = models.URLField(null=True, default='http://pqm5g053b.bkt.clouddn.com/1557161400905.jpg')
+    head_image = models.URLField(null=True, default='http://myheartsky.com/1557161400905.jpg')
 
     USERNAME_FIELD = 'telephone'
     REQUIRED_FIELDS = ['username']
@@ -52,7 +52,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 
 
 class UserShow(models.Model):
-    user = models.ForeignKey("User", on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey("User", on_delete=models.CASCADE, primary_key=True)
     username = models.CharField(max_length=50)
     telephone = models.CharField(max_length=11)
     email = models.EmailField(null=True, default="")

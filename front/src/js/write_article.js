@@ -69,7 +69,7 @@ Article.prototype.handleFileUploadComplete = function (response) {
     var progressGroup = $("#progress-group");
     progressGroup.hide();
 
-    var domain = 'http://pqm5g053b.bkt.clouddn.com/';
+    var domain = 'http://myheartsky.com/';
     var filename = response.key;
     var url = domain + filename;
     var thumbnailInput = $("input[name='thumbnail']");

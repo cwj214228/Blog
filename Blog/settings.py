@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'apps.work_experience',
     'apps.about',
     'apps.blog_diary',
-    'apps.clicknum',
+    'apps.click_num',
 ]
 
 MIDDLEWARE = [
@@ -154,7 +154,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 QINIU_ACCESS_KEY = '9MDDUAqwOlE2WVqSuwq-Cug9CMiikxFkO_4THDc7'
 QINIU_SECRET_KEY = 'Z1kEZOwprrde-iIVFrIMQ1JW3M9BYJWqfdC_Pn67'
 QINIU_BUCKET_NAME = 'blog'
-QINIU_DOMAIN = 'http://pqm5g053b.bkt.clouddn.com/'
+QINIU_DOMAIN = 'http://myheartsky.com/'
 
 # 七牛和自己的服务器，最少要配置一个
 # UEditor配置

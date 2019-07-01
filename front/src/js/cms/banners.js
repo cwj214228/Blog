@@ -71,7 +71,7 @@ Banners.prototype.handleFileUploadError = function (error) {
 
 Banners.prototype.handleFileUploadComplete = function (response) {
     var self = this;
-    var domain = 'http://pqm5g053b.bkt.clouddn.com/';
+    var domain = 'http://myheartsky.com/';
     var filename = response.key;
     var url = domain + filename;
     img.attr('src',url);

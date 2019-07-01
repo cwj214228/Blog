@@ -89,6 +89,7 @@ def register(request):
         print(type(password))
         # 用户注册，数据保存到数据库中
         user = User.objects.create_user(telephone=telephone, username=username, password=password)
+        print(str(user) + '用户注册成功1')
         usershow = UserShow.objects.create(user=user, username=username, telephone=telephone)
         print(str(user)+'用户注册成功')
         # 用户登陆
