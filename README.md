@@ -15,3 +15,5 @@
 ![](https://github.com/cwj214228/Blog/raw/master/media/文章列表.png)
 ### 轮播图
 ![](https://github.com/cwj214228/Blog/raw/master/media/轮播图.png)
+## 博客首页
+![](https://github.com/cwj214228/Blog/raw/master/media/博客首页.png)
