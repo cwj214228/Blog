@@ -71,6 +71,7 @@ def sms_captcha(request):
     # 通过阿里云短信服务给用户发送验证短信
     # result=aliyunsms.send_Sms(telephone,code)
     # print(result)
+    code = cache.get(telephone)
     print(code)
     return restful.ok()
 
